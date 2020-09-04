@@ -1,0 +1,22 @@
+{
+  "name": "simple-be",
+  "version": "1.0.0",
+  "description": "",
+  "main": "simple-be.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "netlify",
+    "serverless",
+    "apis",
+    "js"
+  ],
+  "author": "Netlify",
+  "license": "MIT",
+  "dependencies": {
+    "googleapis": "39",
+    "node-fetch": "^2.6.0",
+    "qs": "^6.7.0"
+  }
+}

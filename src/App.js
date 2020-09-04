@@ -1,25 +1,16 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import fetchData from "./fetchData";
+import Main from "./Main";
+import GlobalStyle from "./style/GlobalStyle";
 
 function App() {
+  const data = fetchData();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <GlobalStyle />
+      {data?.places ? <Main places={data.places} /> : <>{/* LOADER HERE */}</>}
+    </>
   );
 }
 

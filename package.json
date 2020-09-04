@@ -6,12 +6,20 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "leaflet": "^1.6.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3"
+    "react-ga": "^3.1.2",
+    "react-leaflet": "^2.7.0",
+    "react-scripts": "3.4.3",
+    "styled-components": "^5.1.1",
+    "styled-reset": "^4.2.2",
+    "wouter": "^2.5.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "netlify dev",
+    "react:start": "react-scripts start",
+    "prebuild": "node ./scripts/installer.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
