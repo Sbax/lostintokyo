@@ -22,6 +22,10 @@ const List = styled.section`
   > * + * {
     margin-left: 1rem;
   }
+
+  a {
+    color: black;
+  }
 `;
 
 const Title = styled.h1`
@@ -30,7 +34,7 @@ const Title = styled.h1`
   font-weight: bold;
 
   display: flex;
-  align-items: flex-end;
+  align-items: center;
 
   > * + * {
     margin-left: 1rem;
@@ -86,7 +90,8 @@ const Episode = ({ episode, places }) => {
 
       <List ref={scrollRef}>
         {places.map((place) => (
-          <Link href={`place/${place.slug}`} id={place.slug} key={place.slug}>
+          <Link to={`place/${place.slug}`}>
+            {"" /* this fixes the links somehow */}
             <PlaceCard key={place.name} place={place} />
           </Link>
         ))}

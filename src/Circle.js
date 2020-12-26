@@ -5,6 +5,7 @@ const Circle = styled.div`
   cursor: pointer;
   border-radius: 50%;
   background: ${theme.offwhite};
+  color: ${theme.offblack};
 
   height: 3rem;
   width: 3rem;

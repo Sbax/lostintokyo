@@ -1,8 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "wouter";
+import Circle from "./Circle";
+import CircleWithCard from "./CircleWithCard";
 import MapContainer from "./MapContainer";
 import { theme } from "./style/theme";
+import { ReactComponent as Gate } from "./svgs/japanese-gate.svg";
+import { ReactComponent as Left } from "./svgs/left-arrow.svg";
+import { ReactComponent as Right } from "./svgs/right-arrow.svg";
 import { ReactComponent as Wave } from "./svgs/wave.svg";
 
 const Page = styled.section`
@@ -160,6 +165,8 @@ const Navbar = styled(Container)`
 `;
 
 const Links = styled.div`
+  display: flex;
+
   > * + * {
     margin-left: 1rem;
   }
@@ -176,13 +183,23 @@ const PlacePage = ({ place, next, previous }) => {
     <Page>
       <Purple>
         <Navbar>
-          <Link href="/">Home</Link>
+          <CircleWithCard title="Home" icon={Gate} link="/" />
           <Links>
             {previous && (
-              <Link href={`/place/${previous.slug}`}>Precedente</Link>
+              <Link href={`/place/${previous.slug}`}>
+                <Circle>
+                  <Left />
+                </Circle>
+              </Link>
             )}
 
-            {next && <Link href={`/place/${next.slug}`}>Successivo</Link>}
+            {next && (
+              <Link href={`/place/${next.slug}`}>
+                <Circle>
+                  <Right />
+                </Circle>
+              </Link>
+            )}
           </Links>
         </Navbar>
         <InfoSection>

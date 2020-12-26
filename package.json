@@ -13,7 +13,7 @@
     "react-scripts": "3.4.3",
     "styled-components": "^5.1.1",
     "styled-reset": "^4.2.2",
-    "wouter": "^2.5.1"
+    "wouter": "^2.7.0"
   },
   "scripts": {
     "start": "netlify dev",

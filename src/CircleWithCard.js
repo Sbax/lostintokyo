@@ -3,12 +3,14 @@ import styled from "styled-components";
 import { Link } from "wouter";
 import Card from "./Card";
 import Circle from "./Circle";
+import { theme } from "./style/theme";
 
 const Container = styled.div`
   cursor: pointer;
   display: flex;
   font-size: 2rem;
   font-weight: bold;
+  color: ${theme.offblack};
 
   > * + * {
     margin-left: 1rem;
@@ -17,6 +19,7 @@ const Container = styled.div`
   > *:last-child {
     flex: 1;
     width: 100%;
+    justify-content: center;
   }
 
   > ${Circle} {
