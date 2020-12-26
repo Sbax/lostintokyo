@@ -25,6 +25,7 @@ const List = styled.section`
 
   a {
     color: black;
+    text-decoration: none;
   }
 `;
 
