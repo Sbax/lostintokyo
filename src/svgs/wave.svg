@@ -1,3 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" width="100%">
-    <path fill="currentColor" fill-opacity="1" d="M0,256L120,256C240,256,480,256,720,240C960,224,1200,192,1320,176L1440,160L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z" data-darkreader-inline-fill=""></path>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="currentColor" d="M0 256h120c120 0 360 0 600-16s480-48 600-64l120-16v160H0z"/></svg>

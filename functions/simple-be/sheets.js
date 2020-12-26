@@ -36,12 +36,23 @@ const toKebabCase = (string) =>
     .join("-");
 
 const getPlaces = () =>
-  getSheet("places!A2:I")
+  getSheet("places!A2:J")
     .then((response) =>
       response.reduce(
         (
           { places },
-          [name, address, lat, lng, episode, what, note, japaneseName, photo]
+          [
+            name,
+            address,
+            lat,
+            lng,
+            episode,
+            what,
+            note,
+            japaneseName,
+            photo,
+            favorite,
+          ]
         ) => {
           if (lat && lng)
             places.push({
@@ -55,6 +66,7 @@ const getPlaces = () =>
               note,
               japaneseName,
               photo,
+              favorite: favorite === "TRUE",
             });
 
           return { places };

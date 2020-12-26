@@ -1,0 +1,48 @@
+import React from "react";
+import styled from "styled-components";
+import { Link } from "wouter";
+import Card from "./Card";
+import Circle from "./Circle";
+
+const Container = styled.div`
+  cursor: pointer;
+  display: flex;
+  font-size: 2rem;
+  font-weight: bold;
+
+  > * + * {
+    margin-left: 1rem;
+  }
+
+  > *:last-child {
+    flex: 1;
+    width: 100%;
+  }
+
+  > ${Circle} {
+    width: 4rem;
+    height: 4rem;
+
+    > * {
+      opacity: 1;
+      width: 2.2rem;
+      height: 2.2rem;
+    }
+  }
+`;
+
+const CircleWithCard = ({ icon, title, link }) => {
+  const Icon = icon;
+  return (
+    <Link href={link}>
+      <Container>
+        <Circle>
+          <Icon />
+        </Circle>
+        <Card>{title}</Card>
+      </Container>
+    </Link>
+  );
+};
+
+export default CircleWithCard;

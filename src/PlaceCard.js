@@ -1,85 +1,71 @@
 import React from "react";
 import styled from "styled-components";
+import Card from "./Card";
+import Icon from "./Icon";
 import { theme } from "./style/theme";
+import { ReactComponent as SecondWave } from "./svgs/home-wave.svg";
 import { ReactComponent as NoImage } from "./svgs/noimage.svg";
-import { Link } from "wouter";
+import { ReactComponent as Wave } from "./svgs/other-wave.svg";
 
-const Container = styled.article`
+const Container = styled(Card)`
   cursor: pointer;
-  overflow: hidden;
+  height: 20rem;
+  padding: 0;
 
-  height: 22rem;
-  width: 13rem;
-  background-image: ${theme.gradient};
-
-  border-radius: 1rem;
-
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
-
-  display: flex;
-  justify-content: flex-end;
-  flex-direction: column;
-
-  padding: 1rem 0.5rem;
-
-  position: relative;
-
-  color: ${theme.offwhite};
-
-  &:before,
-  &:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-  }
-
-  &:after {
-    ${({ background }) =>
-      background && `background-image: url('${background}');`}
-    background-size: cover;
-    background-position: top, top;
-    opacity: 0.5;
-
-    transition: 300ms ease-in-out opacity;
-  }
-
-  &:before {
-    background-image: linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0.75) 0%,
-      rgba(0, 0, 0, 0.05) 55%
-    );
-
-    z-index: 1;
+  > * {
+    color: ${theme.offwhite};
   }
 
   &:hover {
-    &:after {
-      opacity: 1;
-    }
+    box-shadow: 0 10px 15px -8px rgba(0, 0, 0, 0.4),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    opacity: 0.95;
   }
+`;
 
-  > * {
-    position: relative;
-    z-index: 2;
-  }
+const Description = styled.div`
+  background: ${theme.offwhite};
+  color: ${theme.offblack};
+  display: flex;
+  flex-direction: row;
+
+  min-height: 5rem;
+  padding: 1rem;
+  padding-top: 0;
+  z-index: 1;
 
   > * + * {
-    margin-top: 0.5rem;
+    margin-left: 1rem;
+  }
+`;
+
+const Titles = styled.div`
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  > * + * {
+    margin-top: 0.33rem;
   }
 `;
 
 const Title = styled.h1`
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 800;
+
+  line-height: 1.3em;
+  max-height: 1.3em;
+
+  vertical-align: top;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 const Subtitle = styled.h2`
-  font-size: 1rem;
+  font-size: 0.8rem;
   opacity: 0.75;
 
   white-space: nowrap;
@@ -93,8 +79,8 @@ const NoImageContainer = styled.div`
   left: 0;
   bottom: 0;
   right: 0;
+  z-index: 0;
 
-  opacity: 0.3;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -102,28 +88,58 @@ const NoImageContainer = styled.div`
 
   font-weight: bold;
 
+  color: ${theme.offwhite};
+  background-image: ${theme.gradient};
+  opacity: 0.75;
+  padding-bottom: 4rem;
+
   > svg {
     width: 2rem;
     margin-bottom: 1rem;
   }
 `;
 
+const Waves = styled.div`
+  position: relative;
+
+  > * {
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
+
+    &.second-wave {
+      z-index: 0;
+      opacity: 0.65;
+      color: ${theme.primary};
+      bottom: 7px;
+    }
+  }
+`;
+
 const PlaceCard = ({ place }) => {
-  const { name, slug, japaneseName, photo } = place;
+  const { name, japaneseName, what, photo } = place;
 
   return (
-    <Link href={`place/${slug}`}>
-      <Container background={photo}>
-        {!photo && (
-          <NoImageContainer>
-            <NoImage />
-            ヽ(｀○´)/
-          </NoImageContainer>
-        )}
-        <Title>{name}</Title>
-        <Subtitle>{japaneseName}</Subtitle>
-      </Container>
-    </Link>
+    <Container background={photo}>
+      {!photo && (
+        <NoImageContainer>
+          <NoImage />
+          ヽ(｀○´)/
+        </NoImageContainer>
+      )}
+
+      <Waves>
+        <Wave />
+        <SecondWave className="second-wave" />
+      </Waves>
+      <Description>
+        <Icon type={what} />
+        <Titles>
+          <Title>{name}</Title>
+          <Subtitle>{japaneseName}</Subtitle>
+        </Titles>
+      </Description>
+    </Container>
   );
 };
 
