@@ -20,6 +20,10 @@ const Container = styled.div`
     flex: 1;
     width: 100%;
     justify-content: center;
+
+    @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+      display: none;
+    }
   }
 
   > ${Circle} {

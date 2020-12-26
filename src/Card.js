@@ -10,7 +10,7 @@ const Card = styled.article`
 
   overflow: hidden;
 
-  width: 25rem;
+  max-width: 25rem;
   padding: 1rem;
 
   background: ${theme.offwhite};

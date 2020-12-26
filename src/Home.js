@@ -43,18 +43,20 @@ const White = styled.section`
 
 const Header = styled.header`
   display: flex;
+  flex-direction: column;
+
   padding: 1rem 0;
   color: ${theme.offblack};
 `;
 
 const Column = styled.div`
-  > * + * {
-    margin-top: 1rem;
-  }
+  display: flex;
 
-  & + & {
+  > * + * {
     margin-left: 1rem;
   }
+
+  margin-bottom: 1rem;
 `;
 
 const Paragraph = styled.p`
@@ -68,28 +70,23 @@ const Home = ({ episodes, places }) => {
         <Header>
           <Column>
             <CircleWithCard title="Lost In Tokyo" icon={Gate} link="/" />
-
-            <Card>
-              <Paragraph>
-                Tutti i luoghi dell'intramontabile serie{" "}
-                <a href="https://www.youtube.com/watch?v=dH3sLuKjBGc&list=PLdQMek47cvQwxNO4-M_BUP3xVgEI_0NAj">
-                  Lost In Tokyo
-                </a>{" "}
-                di{" "}
-                <a href="https://www.twitch.tv/dariomocciatwitch">
-                  Dario Moccia
-                </a>
-                .
-              </Paragraph>
-              <Paragraph>
-                Per tutte le info sul sito e i contenuti visita la pagina{" "}
-                <Link href="/about">about</Link>.
-              </Paragraph>
-            </Card>
-          </Column>
-          <Column>
             <CircleWithCard title="Vai alla mappa" icon={Map} link="/map" />
           </Column>
+          <Card>
+            <Paragraph>
+              Tutti i luoghi dell'intramontabile serie{" "}
+              <a href="https://www.youtube.com/watch?v=dH3sLuKjBGc&list=PLdQMek47cvQwxNO4-M_BUP3xVgEI_0NAj">
+                Lost In Tokyo
+              </a>{" "}
+              di{" "}
+              <a href="https://www.twitch.tv/dariomocciatwitch">Dario Moccia</a>
+              .
+            </Paragraph>
+            <Paragraph>
+              Per tutte le info sul sito e i contenuti visita la pagina{" "}
+              <Link href="/about">about</Link>.
+            </Paragraph>
+          </Card>
         </Header>
         <Wave />
       </Purple>

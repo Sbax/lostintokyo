@@ -49,6 +49,12 @@ const MapSection = styled.section`
 `;
 
 const Places = styled.section`
+  display: none;
+
+  @media only screen and (min-width: ${theme.breakpoints.tablet}) {
+    display: block;
+  }
+
   position: absolute;
   right: 0;
   top: 0;
@@ -107,12 +113,16 @@ const Card = styled(GenericCard)`
 `;
 
 const Filters = styled.div`
+  display: none;
+  @media only screen and (min-width: ${theme.breakpoints.tablet}) {
+    display: flex;
+  }
+
   position: relative;
   z-index: 1;
   margin-top: 1rem;
 
   color: ${theme.offblack};
-  display: flex;
 
   > * {
     flex: 1;

@@ -91,7 +91,7 @@ const Episode = ({ episode, places }) => {
 
       <List ref={scrollRef}>
         {places.map((place) => (
-          <Link to={`place/${place.slug}`}>
+          <Link to={`place/${place.slug}`} key={place.slug}>
             {"" /* this fixes the links somehow */}
             <PlaceCard key={place.name} place={place} />
           </Link>

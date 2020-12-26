@@ -9,6 +9,7 @@ import { ReactComponent as Wave } from "./svgs/other-wave.svg";
 
 const Container = styled(Card)`
   cursor: pointer;
+  width: 25rem;
   height: 20rem;
   padding: 0;
 
