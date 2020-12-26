@@ -112,11 +112,15 @@ const Card = styled(GenericCard)`
   padding: 1rem;
 `;
 
-const Filters = styled.div`
+const FilterCard = styled(Card)`
   display: none;
   @media only screen and (min-width: ${theme.breakpoints.tablet}) {
-    display: flex;
+    display: block;
   }
+`;
+
+const Filters = styled.div`
+  display: flex;
 
   position: relative;
   z-index: 1;
@@ -242,7 +246,7 @@ const MapPage = ({ places }) => {
 
         <Cards>
           <CircleWithCard title="Lost In Tokyo" icon={Gate} link="/" />
-          <Card>
+          <FilterCard>
             Filtra per categoria
             <Filters>
               <Toggle
@@ -281,7 +285,7 @@ const MapPage = ({ places }) => {
                 <span>Hotel</span>
               </Toggle>
             </Filters>
-          </Card>
+          </FilterCard>
         </Cards>
         <Map
           center={position}
